@@ -14,7 +14,7 @@
   * Spec 7: Convert earth life expectancy into life expectancy for each planet, Input: 88 earth years, Output: {earth: 88, mercury: 21.12, venus: 54.56, mars: 165.44, jupiter: 1043.68}
   * Spec 8: Calculate how many years a user has left to live on each planet, Input: user's age of 35 earth years, Output: {earth: 53 mercury: , venus: , mars: , jupiter: }
 
-3. Integrationß
+3. Integration
   * N/A
 
 4. UX/UI
