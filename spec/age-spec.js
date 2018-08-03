@@ -22,12 +22,13 @@ describe ('Age', function(){
     expect(newAge.planetAges.jupiter).toEqual(421.03);
   })
 
-  it('this will convert earth life expectancey to planet life expectancy', function(){
-    newAge.getPlanetLifeExpectancies();
-    expect(newAge.planetLifeExpectancies.mercury).toEqual(88*.24);
-    expect(newAge.planetLifeExpectancies.venus).toEqual(88*.62);
-    expect(newAge.planetLifeExpectancies.mars).toEqual(88*1.88);
-    expect(newAge.planetLifeExpectancies.jupiter).toEqual(88*11.86);
+  it('should calculate years left to live for all planets', function(){
+    newAge.getPlanetAges();
+    newAge.getYearsLeft();
+    expect(newAge.yearsLeft.mercury).toEqual((88*.24)-8.52);
+    expect(newAge.yearsLeft.venus).toEqual((88*.62)-22.01);
+    expect(newAge.yearsLeft.mars).toEqual((88*1.88)-66.74);
+    expect(newAge.yearsLeft.jupiter).toEqual((88*11.86)-421.03);
   })
 
 
