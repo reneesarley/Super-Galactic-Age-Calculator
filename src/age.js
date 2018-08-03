@@ -1,9 +1,9 @@
 export class Age{
-  constructor(){
+  constructor(userBday){
+    this.usersBday;
     this.currentTime;
     this.earthAgeYears;
     this.earthLifeExpectency;
-    this.usersBday;
     this.planetAges = {};
     this.planetLifeExpectancies={};
     this.yearsLeft={};
@@ -32,6 +32,14 @@ export class Age{
     this.yearsLeft[planet] = (this.earthLifeExpectency * this.earthVersusPlanetRate[planet]) - this.planetAges[planet];
     }
   }
-
-
+  getUsersAgeInYears(){
+    let currentDateTime = new Date();
+    let planet = 'earth'
+    console.log(this.userBday);
+    console.log(currentDateTime);
+    let ageInYears = currentDateTime - this.userBday;
+    ageInYears = ageInYears /1000 /60 /60 /24 /365.25;
+    this.planetAges[planet] = Math.round(ageInYears * 100) / 100;
+    console.log(this.planetAges[planet]);
+  }
 }

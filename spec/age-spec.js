@@ -2,11 +2,14 @@ import{Age} from '../src/age';
 
 describe ('Age', function(){
   let newAge;
+  let testBDay = new Date(1982, 4, 21, 4, 30, 0, 0)
   ///setup variables there
   beforeEach(function(){
     newAge = new Age();
+    //(year, month, day, hours, minutes, seconds, milliseconds
     newAge.earthAgeYears = 35.5
     newAge.earthLifeExpectency = 88
+    newAge.userBday = testBDay;
     //establish test instances here
   });
 //add tests here
@@ -31,5 +34,11 @@ describe ('Age', function(){
     expect(newAge.yearsLeft.jupiter).toEqual((88*11.86)-421.03);
   })
 
-
+  it('should return the users age in earth years', function(){
+    newAge.getUsersAgeInYears();
+    let currentDateTime = new Date();
+    let age = (currentDateTime - testBDay)/1000 /60 /60 /24 /365.25
+    let ageRounded = Math.round(age*100)/100;
+    expect(newAge.planetAges.earth).toEqual(ageRounded);
+  })
 })
