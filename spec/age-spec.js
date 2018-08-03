@@ -7,9 +7,8 @@ describe ('Age', function(){
     //establish test instances here
   });
 //add tests here
-  it('should convert earth years to seconds'function(){
-  // expect ().toEqual();
-
+  it('should convert earth years to seconds', function(){
+    expect (true).toEqual(true);
   })
 
 })
