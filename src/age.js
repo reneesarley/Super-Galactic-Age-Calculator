@@ -5,7 +5,7 @@ export class Age{
     this.earthLifeExpectency;
     this.usersBday;
     this.planetAges = {};
-    this.planetlifeExpectancies={};
+    this.planetLifeExpectancies={};
     this.allPlanets=['earth', 'mercury', 'venus', 'mars','jupiter']
     this.earthVersusPlanetRate ={earth: 1,
                                  mercury:.24,
@@ -23,6 +23,12 @@ export class Age{
     for (let i =0 ; i < this.allPlanets.length; i++){
       let planet = this.allPlanets[i];
     this.planetAges[planet] = this.earthAgeYears * this.earthVersusPlanetRate[planet];
+    }
+  }
+  getPlanetLifeExpectancies(){
+    for (let i =0 ; i < this.allPlanets.length; i++){
+      let planet = this.allPlanets[i];
+    this.planetLifeExpectancies[planet] = this.earthLifeExpectency * this.earthVersusPlanetRate[planet];
     }
   }
 
