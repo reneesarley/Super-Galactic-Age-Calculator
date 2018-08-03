@@ -3,46 +3,32 @@ import{Age} from '../src/age';
 describe ('Age', function(){
   let newAge;
   let testBDay = new Date(1982, 4, 21, 4, 30, 0, 0)
-  ///setup variables there
   beforeEach(function(){
     newAge = new Age(testBDay);
-    newAge.getUsersAgeInYears();
-    // newAge.earthAgeYears = 35.5
-    // newAge.earthLifeExpectency = 88
-    // newAge.userBday = testBDay;
-    //establish test instances here
+    newAge.earthLifeExpectency = 88
   });
-//add tests here
-  // it('should convert earth years to seconds', function(){
-  //   expect (newAge.convertEarthYearsToSeconds(this.earthAgeYears)).toEqual(1120294800);
-  // })
+  it('should convert earth years to seconds', function(){
+    let currentDateTime = new Date()
+    let ageInSeconds = (currentDateTime - testBDay)/1000
+    expect (Math.round(newAge.convertEarthYearsToSeconds())).toEqual(Math.round(ageInSeconds));
+  })
 
-  // it('this will convert earth years to planet years', function(){
-  //   newAge.getPlanetAges();
-  //   expect(newAge.planetAges.mercury).toEqual(8.52);
-  //   expect(newAge.planetAges.venus).toEqual(22.01);
-  //   expect(newAge.planetAges.mars).toEqual(66.74);
-  //   expect(newAge.planetAges.jupiter).toEqual(421.03);
-  // })
+  it('should calculate years left to live for all planets', function(){
+    newAge.getYearsLeft();
+    expect(newAge.yearsLeft.mercury).toEqual((88*.24)-newAge.planetAges.mercury);
+    expect(newAge.yearsLeft.venus).toEqual((88*.62)-newAge.planetAges.venus);
+    expect(newAge.yearsLeft.mars).toEqual((88*1.88)-newAge.planetAges.mars);
+    expect(newAge.yearsLeft.jupiter).toEqual((88*11.86)-newAge.planetAges.jupiter);
+  })
 
-  // it('should calculate years left to live for all planets', function(){
-  //   newAge.getPlanetAges();
-  //   newAge.getYearsLeft();
-  //   expect(newAge.yearsLeft.mercury).toEqual((88*.24)-8.52);
-  //   expect(newAge.yearsLeft.venus).toEqual((88*.62)-22.01);
-  //   expect(newAge.yearsLeft.mars).toEqual((88*1.88)-66.74);
-  //   expect(newAge.yearsLeft.jupiter).toEqual((88*11.86)-421.03);
-  // })
-
-  it('should return the users age in earth years', function(){
-    newAge.getUsersAgeInYears();
+  it('should return the users age in years for each planet', function(){
+    // newAge.getUsersAgeInYears();
     let currentDateTime = new Date();
     let age = (currentDateTime - testBDay)/1000 /60 /60 /24 /365.25
-    // let ageRounded = Math.round(age*100)/100;
-    expect(newAge.planetAges.earth).toEqual(Math.round(age*100)/100);
-    expect(newAge.planetAges.mercury).toEqual(Math.round((age * .24)*100)/100);
-    expect(newAge.planetAges.venus).toEqual(Math.round((age * .62)*100)/100);
-    expect(newAge.planetAges.mars).toEqual(Math.round((age * 1.88)*100)/100);
-    expect(newAge.planetAges.jupiter).toEqual(Math.round((age * 11.86)*100)/100);
+    expect(newAge.planetAges.earth).toEqual(age);
+    expect(newAge.planetAges.mercury).toEqual(age * .24);
+    expect(newAge.planetAges.venus).toEqual(age * .62);
+    expect(newAge.planetAges.mars).toEqual(age * 1.88);
+    expect(newAge.planetAges.jupiter).toEqual(age * 11.86);
   })
 })
