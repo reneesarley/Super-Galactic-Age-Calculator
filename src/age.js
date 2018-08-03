@@ -13,7 +13,7 @@ export class Age{
                                  venus: .62,
                                  mars: 1.88,
                                  jupiter: 11.86};
-    // this.getUsersAgeInYears();
+    this.getUsersAgeInYears();
   }
 
   // convertEarthYearsToSeconds(){
