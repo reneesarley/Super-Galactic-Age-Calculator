@@ -1,7 +1,7 @@
 export class Age{
-  constructor(birthday){
+  constructor(birthday, lifeExpect){
     this.usersBday = birthday;
-    this.earthLifeExpectency;
+    this.earthLifeExpectency= lifeExpect;
     this.planetAges = {};
     this.planetLifeExpectancies={};
     this.yearsLeft={};

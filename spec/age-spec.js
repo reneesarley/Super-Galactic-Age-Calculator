@@ -4,8 +4,8 @@ describe ('Age', function(){
   let newAge;
   let testBDay = new Date(1982, 4, 21, 4, 30, 0, 0)
   beforeEach(function(){
-    newAge = new Age(testBDay);
-    newAge.earthLifeExpectency = 88
+    newAge = new Age(testBDay, 88);
+    // newAge.earthLifeExpectency = 88
   });
   it('should convert earth years to seconds', function(){
     let currentDateTime = new Date()
