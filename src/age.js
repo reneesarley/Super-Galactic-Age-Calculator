@@ -6,4 +6,10 @@ export class Age{
     this.planetAges={};
     this.planetlifeExpectancies={};
   }
+
+  convertEarthYearsToSeconds(){
+   let usersAgeInSeconds = this.usersAge * 365.25 * 24 * 60 * 60;
+   return usersAgeInSeconds;
+  }
+
 }
