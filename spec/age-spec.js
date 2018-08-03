@@ -16,6 +16,9 @@ describe ('Age', function(){
   it('this will convert earth years to earth planet years', function(){
     newAge.getPlanetAges();
     expect(newAge.planetAges.mercury).toEqual(8.52);
+    expect(newAge.planetAges.venus).toEqual(22.01);
+    expect(newAge.planetAges.mars).toEqual(66.74);
+    expect(newAge.planetAges.jupiter).toEqual(421.03);
   })
 
 })

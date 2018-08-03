@@ -2,9 +2,16 @@ export class Age{
   constructor(){
     this.currentTime;
     this.earthAgeYears;
+    this.earthLifeExpectency;
     this.usersBday;
     this.planetAges = {};
     this.planetlifeExpectancies={};
+    this.allPlanets=['earth', 'mercury', 'venus', 'mars','jupiter']
+    this.earthVersusPlanetRate ={earth: 1,
+                                 mercury:.24,
+                                 venus: .62,
+                                 mars: 1.88,
+                                 jupiter: 11.86};
     // this.getPlanetAges();
   }
 
@@ -13,9 +20,10 @@ export class Age{
    return usersAgeInSeconds;
   }
   getPlanetAges(){
-    console.log(this.planetAges.mercury);
-    this.planetAges.mercury = this.earthAgeYears * .24
-    console.log(this.planetAges.mercury);
+    for (let i =0 ; i < this.allPlanets.length; i++){
+      let planet = this.allPlanets[i];
+    this.planetAges[planet] = this.earthAgeYears * this.earthVersusPlanetRate[planet];
+    }
   }
 
 }
